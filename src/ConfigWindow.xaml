@@ -1,0 +1,29 @@
+﻿<Window x:Class="AutoBrowserChooser.ConfigWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:a="clr-namespace:AutoBrowserChooser" 
+        mc:Ignorable="d" Title="AutoBrowserChooser Settings" Width="500" SizeToContent="Height">
+    <StackPanel Margin="10">
+        
+        <Label>Main browser:</Label>
+        <a:FileInputBox FileName="{a:ConfigBinding MainBrowser}" />
+        
+        <Label>Alternate browser:</Label>
+        <a:FileInputBox FileName="{a:ConfigBinding AlternateBrowser}" />
+        
+        <Label>Launch alternate browser for the following domains (semicolon separated):</Label>
+        <TextBox Text="{a:ConfigBinding LaunchAlternateForDomains}" />
+
+        <CheckBox IsChecked="{a:ConfigBinding LaunchAlternateForIntranet}" Margin="0,10,0,0">Launch alternate browser for intranet</CheckBox>
+        <CheckBox IsChecked="{a:ConfigBinding LaunchAlternateForClickOnce}">Launch alternate browser for ClickOnce</CheckBox>
+        <CheckBox IsChecked="{a:ConfigBinding LaunchAlternateForLocalhost}">Launch alternate browser for localhost</CheckBox>
+        
+        <DockPanel LastChildFill="False">
+            <Button Name="uxCancel"  DockPanel.Dock="Right" Padding="20,5,20,5" Margin="10,0,0,0" Click="uxCancel_Click">Cancel</Button>
+            <Button Name="uxSave" DockPanel.Dock="Right" Padding="20,5,20,5" Click="uxSave_Click">Save</Button>
+        </DockPanel>
+        
+    </StackPanel>
+</Window>
